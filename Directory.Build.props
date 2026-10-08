@@ -1,0 +1,84 @@
+<Project>
+
+  <PropertyGroup>
+
+    <!-- =============================================== -->
+    <!-- Framework                                       -->
+    <!-- =============================================== -->
+
+    <TargetFramework>net10.0</TargetFramework>
+
+
+    <!-- =============================================== -->
+    <!-- C#                                               -->
+    <!-- =============================================== -->
+
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+
+
+    <!-- =============================================== -->
+    <!-- Build quality                                    -->
+    <!-- =============================================== -->
+
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+    <AnalysisLevel>latest</AnalysisLevel>
+
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+
+
+    <!-- =============================================== -->
+    <!-- Deterministic builds                             -->
+    <!-- =============================================== -->
+
+    <Deterministic>true</Deterministic>
+
+    <ContinuousIntegrationBuild
+      Condition="'$(CI)' == 'true'">
+      true
+    </ContinuousIntegrationBuild>
+
+
+    <!-- =============================================== -->
+    <!-- Source / debugging                               -->
+    <!-- =============================================== -->
+
+    <DebugType>portable</DebugType>
+
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+
+
+    <!-- =============================================== -->
+    <!-- NuGet                                             -->
+    <!-- =============================================== -->
+
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+
+
+    <!-- =============================================== -->
+    <!-- Container / deployment                           -->
+    <!-- =============================================== -->
+
+    <InvariantGlobalization>false</InvariantGlobalization>
+
+  </PropertyGroup>
+
+
+  <!-- ================================================= -->
+  <!-- RELEASE                                             -->
+  <!-- ================================================= -->
+
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+
+    <Optimize>true</Optimize>
+
+    <DebugSymbols>false</DebugSymbols>
+
+    <DebugType>none</DebugType>
+
+  </PropertyGroup>
+
+</Project>

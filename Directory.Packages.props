@@ -1,0 +1,229 @@
+<Project>
+
+  <PropertyGroup>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+    <CentralPackageTransitivePinningEnabled>true</CentralPackageTransitivePinningEnabled>
+
+    <!-- Microsoft -->
+    <AspNetCoreVersion>10.0.12</AspNetCoreVersion>
+    <EntityFrameworkCoreVersion>10.0.12</EntityFrameworkCoreVersion>
+
+    <!-- Aspire -->
+    <AspireVersion>13.6.1</AspireVersion>
+
+    <!-- Observability -->
+    <OpenTelemetryVersion>1.19.1</OpenTelemetryVersion>
+  </PropertyGroup>
+
+
+  <!-- ===================================================== -->
+  <!-- ASP.NET CORE                                          -->
+  <!-- ===================================================== -->
+
+  <ItemGroup>
+
+    <PackageVersion
+      Include="Microsoft.AspNetCore.Authentication.JwtBearer"
+      Version="$(AspNetCoreVersion)" />
+
+    <PackageVersion
+      Include="Microsoft.AspNetCore.OpenApi"
+      Version="$(AspNetCoreVersion)" />
+
+    <PackageVersion
+      Include="Microsoft.Extensions.Http.Resilience"
+      Version="$(AspNetCoreVersion)" />
+
+  </ItemGroup>
+
+
+  <!-- ===================================================== -->
+  <!-- ENTITY FRAMEWORK CORE                                  -->
+  <!-- ===================================================== -->
+
+  <ItemGroup>
+
+    <PackageVersion
+      Include="Microsoft.EntityFrameworkCore"
+      Version="$(EntityFrameworkCoreVersion)" />
+
+    <PackageVersion
+      Include="Microsoft.EntityFrameworkCore.Relational"
+      Version="$(EntityFrameworkCoreVersion)" />
+
+    <PackageVersion
+      Include="Microsoft.EntityFrameworkCore.Design"
+      Version="$(EntityFrameworkCoreVersion)" />
+
+    <PackageVersion
+      Include="Microsoft.EntityFrameworkCore.Tools"
+      Version="$(EntityFrameworkCoreVersion)" />
+
+    <!-- SQL Server -->
+    <PackageVersion
+      Include="Microsoft.EntityFrameworkCore.SqlServer"
+      Version="$(EntityFrameworkCoreVersion)" />
+
+    <!-- PostgreSQL -->
+    <PackageVersion
+      Include="Npgsql.EntityFrameworkCore.PostgreSQL"
+      Version="10.0.0" />
+
+  </ItemGroup>
+
+
+  <!-- ===================================================== -->
+  <!-- ASPIRE                                                 -->
+  <!-- ===================================================== -->
+
+  <ItemGroup>
+
+    <PackageVersion
+      Include="Aspire.Hosting.AppHost"
+      Version="$(AspireVersion)" />
+
+    <PackageVersion
+      Include="Aspire.Hosting.PostgreSQL"
+      Version="$(AspireVersion)" />
+
+    <PackageVersion
+      Include="Aspire.Hosting.Redis"
+      Version="$(AspireVersion)" />
+
+    <PackageVersion
+      Include="Aspire.Npgsql.EntityFrameworkCore.PostgreSQL"
+      Version="$(AspireVersion)" />
+
+    <PackageVersion
+      Include="Aspire.StackExchange.Redis"
+      Version="$(AspireVersion)" />
+
+  </ItemGroup>
+
+
+  <!-- ===================================================== -->
+  <!-- MEDIATOR / CQRS                                        -->
+  <!-- ===================================================== -->
+
+  <ItemGroup>
+
+    <PackageVersion
+      Include="MediatR"
+      Version="14.2.0" />
+
+  </ItemGroup>
+
+
+  <!-- ===================================================== -->
+  <!-- VALIDATION                                              -->
+  <!-- ===================================================== -->
+
+  <ItemGroup>
+
+    <PackageVersion
+      Include="FluentValidation"
+      Version="12.1.0" />
+
+    <PackageVersion
+      Include="FluentValidation.DependencyInjectionExtensions"
+      Version="12.1.0" />
+
+  </ItemGroup>
+
+
+  <!-- ===================================================== -->
+  <!-- LOGGING                                                 -->
+  <!-- ===================================================== -->
+
+  <ItemGroup>
+
+    <PackageVersion
+      Include="Serilog.AspNetCore"
+      Version="10.0.0" />
+
+    <PackageVersion
+      Include="Serilog.Sinks.Console"
+      Version="6.0.0" />
+
+    <PackageVersion
+      Include="Serilog.Sinks.File"
+      Version="7.0.0" />
+
+  </ItemGroup>
+
+
+  <!-- ===================================================== -->
+  <!-- OPENTELEMETRY                                          -->
+  <!-- ===================================================== -->
+
+  <ItemGroup>
+
+    <PackageVersion
+      Include="OpenTelemetry"
+      Version="$(OpenTelemetryVersion)" />
+
+    <PackageVersion
+      Include="OpenTelemetry.Extensions.Hosting"
+      Version="$(OpenTelemetryVersion)" />
+
+    <PackageVersion
+      Include="OpenTelemetry.Exporter.OpenTelemetryProtocol"
+      Version="$(OpenTelemetryVersion)" />
+
+    <PackageVersion
+      Include="OpenTelemetry.Instrumentation.AspNetCore"
+      Version="$(OpenTelemetryVersion)" />
+
+    <PackageVersion
+      Include="OpenTelemetry.Instrumentation.Http"
+      Version="$(OpenTelemetryVersion)" />
+
+    <PackageVersion
+      Include="OpenTelemetry.Instrumentation.Runtime"
+      Version="$(OpenTelemetryVersion)" />
+
+  </ItemGroup>
+
+
+  <!-- ===================================================== -->
+  <!-- REDIS                                                   -->
+  <!-- ===================================================== -->
+
+  <ItemGroup>
+
+    <PackageVersion
+      Include="StackExchange.Redis"
+      Version="3.3.1" />
+
+  </ItemGroup>
+
+
+  <!-- ===================================================== -->
+  <!-- TESTING                                                 -->
+  <!-- ===================================================== -->
+
+  <ItemGroup>
+
+    <PackageVersion
+      Include="Microsoft.NET.Test.Sdk"
+      Version="18.0.1" />
+
+    <PackageVersion
+      Include="xunit.v3"
+      Version="3.2.1" />
+
+    <PackageVersion
+      Include="xunit.runner.visualstudio"
+      Version="3.1.5" />
+
+    <PackageVersion
+      Include="FluentAssertions"
+      Version="8.8.0" />
+
+    <PackageVersion
+      Include="Microsoft.AspNetCore.Mvc.Testing"
+      Version="$(AspNetCoreVersion)" />
+
+  </ItemGroup>
+
+</Project>

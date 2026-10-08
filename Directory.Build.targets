@@ -1,0 +1,50 @@
+<Project>
+
+  <!-- ================================================= -->
+  <!-- CI BUILD VALIDATION                                -->
+  <!-- ================================================= -->
+
+  <Target
+    Name="ValidateCIConfiguration"
+    BeforeTargets="Build"
+    Condition="'$(CI)' == 'true'">
+
+    <Error
+      Condition="'$(Configuration)' != 'Release'"
+      Text="CI builds must use Configuration=Release." />
+
+  </Target>
+
+
+  <!-- ================================================= -->
+  <!-- PRODUCTION PUBLISH VALIDATION                     -->
+  <!-- ================================================= -->
+
+  <Target
+    Name="ValidateProductionPublish"
+    BeforeTargets="Publish"
+    Condition="'$(CI)' == 'true'">
+
+    <Error
+      Condition="'$(Configuration)' != 'Release'"
+      Text="Production publishing requires Configuration=Release." />
+
+  </Target>
+
+
+  <!-- ================================================= -->
+  <!-- PACKAGE LOCK                                       -->
+  <!-- ================================================= -->
+
+  <Target
+    Name="ValidatePackageLock"
+    AfterTargets="Restore"
+    Condition="'$(CI)' == 'true'">
+
+    <Message
+      Importance="High"
+      Text="NuGet package lock file is enabled for CI." />
+
+  </Target>
+
+</Project>
