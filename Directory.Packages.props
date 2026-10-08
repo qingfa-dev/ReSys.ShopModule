@@ -13,6 +13,9 @@
 
     <!-- Observability -->
     <OpenTelemetryVersion>1.19.1</OpenTelemetryVersion>
+
+    <!-- Resilience -->
+    <HttpResilienceVersion>10.10.0</HttpResilienceVersion>
   </PropertyGroup>
 
 
@@ -32,7 +35,7 @@
 
     <PackageVersion
       Include="Microsoft.Extensions.Http.Resilience"
-      Version="$(AspNetCoreVersion)" />
+      Version="$(HttpResilienceVersion)" />
 
   </ItemGroup>
 
@@ -67,7 +70,7 @@
     <!-- PostgreSQL -->
     <PackageVersion
       Include="Npgsql.EntityFrameworkCore.PostgreSQL"
-      Version="10.0.0" />
+      Version="10.0.3" />
 
   </ItemGroup>
 
@@ -122,11 +125,11 @@
 
     <PackageVersion
       Include="FluentValidation"
-      Version="12.1.0" />
+      Version="12.1.1" />
 
     <PackageVersion
       Include="FluentValidation.DependencyInjectionExtensions"
-      Version="12.1.0" />
+      Version="12.1.1" />
 
   </ItemGroup>
 
@@ -143,7 +146,7 @@
 
     <PackageVersion
       Include="Serilog.Sinks.Console"
-      Version="6.0.0" />
+      Version="6.1.1" />
 
     <PackageVersion
       Include="Serilog.Sinks.File"
@@ -206,11 +209,11 @@
 
     <PackageVersion
       Include="Microsoft.NET.Test.Sdk"
-      Version="18.0.1" />
+      Version="18.10.1" />
 
     <PackageVersion
       Include="xunit.v3"
-      Version="3.2.1" />
+      Version="3.2.2" />
 
     <PackageVersion
       Include="xunit.runner.visualstudio"
@@ -218,11 +221,23 @@
 
     <PackageVersion
       Include="FluentAssertions"
-      Version="8.8.0" />
+      Version="8.11.0" />
 
     <PackageVersion
       Include="Microsoft.AspNetCore.Mvc.Testing"
       Version="$(AspNetCoreVersion)" />
+
+    <PackageVersion
+      Include="coverlet.collector"
+      Version="10.1.0" />
+
+    <PackageVersion
+      Include="Moq"
+      Version="4.21.0" />
+
+    <PackageVersion
+      Include="shouldly"
+      Version="4.3.0" />
 
   </ItemGroup>
 

@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <RootNamespace>BuildingBlock.Monad</RootNamespace>
+    <AssemblyName>BuildingBlock.Monad</AssemblyName>
+
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+
+    <PackageId>BuildingBlock.Monad</PackageId>
+    <Description>
+      Lightweight functional primitives for Result, Error and Option handling.
+    </Description>
+
+    <PackageTags>
+      functional;result;option;monad;dotnet;building-block
+    </PackageTags>
+
+    <IsPackable>true</IsPackable>
+    <IsPublishable>false</IsPublishable>
+  </PropertyGroup>
+
+</Project>

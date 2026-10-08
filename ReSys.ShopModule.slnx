@@ -1,2 +1,10 @@
 <Solution>
+  <Folder Name="/src/" />
+  <Folder Name="/src/BuildingBlocks/">
+    <Project Path="src/BuildingBlocks/BuildingBlock.Monad/BuildingBlock.Monad.csproj" />
+  </Folder>
+  <Folder Name="/tests/" />
+  <Folder Name="/tests/BuildingBlocks/">
+    <Project Path="tests/BuildingBlocks/BuildingBlock.Monad.UnitTest/BuildingBlock.Monad.UnitTest.csproj" />
+  </Folder>
 </Solution>
