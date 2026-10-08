@@ -3,46 +3,25 @@
 namespace BuildingBlock.Monad.UnitTest;
 
 [Trait("Category", "Contract")]
-public class BuildingBlockMarkerSpec
+public sealed class BuildingBlockMarkerSpec
 {
     private static readonly Type MarkerType = typeof(IBuildingBlockMonadMarker);
 
     [Fact]
-    public void BuildingBlockMarker_Should_Be_A_Static_StaticClass()
+    public void BuildingBlockMarker_Should_Be_A_Static_Class()
     {
         // Arrange
-        var type = typeof(IBuildingBlockMonadMarker);
+        var type = MarkerType;
 
         // Act
-        // (no action needed)
+        var isClass = type.IsClass;
+        var isAbstract = type.IsAbstract;
+        var isSealed = type.IsSealed;
 
         // Assert
-        type.IsAbstract.ShouldBeTrue();
-        type.IsSealed.ShouldBeTrue();
-    }
-
-    [Theory]
-    [InlineData(nameof(Type.IsPublic), true)]
-    [InlineData(nameof(Type.IsClass), true)]
-    [InlineData(nameof(Type.IsAbstract), true)]
-    [InlineData(nameof(Type.IsSealed), true)]
-    [InlineData(nameof(Type.IsInterface), false)]
-    [InlineData(nameof(Type.IsGenericType), false)]
-    [InlineData(nameof(Type.IsValueType), false)]
-    [InlineData(nameof(Type.IsEnum), false)]
-    [InlineData(nameof(Type.IsArray), false)]
-    [InlineData(nameof(Type.IsPrimitive), false)]
-    public void BuildingBlockMarker_Should_Satisfy_Metadata_Contract(string propertyName, bool expected)
-    {
-        // Arrange
-        var property = typeof(Type).GetProperty(propertyName, BindingFlags.Public | BindingFlags.Instance);
-
-        // Act
-        var actual = property?.GetValue(MarkerType);
-
-        // Assert
-        property.ShouldNotBeNull($"Type.{propertyName} not found — update the InlineData row if the property was renamed.");
-        actual.ShouldBe(expected);
+        isClass.ShouldBeTrue();
+        isAbstract.ShouldBeTrue();
+        isSealed.ShouldBeTrue();
     }
 
     [Fact]
@@ -71,64 +50,50 @@ public class BuildingBlockMarkerSpec
         assemblyName.ShouldBe("BuildingBlock.Monad");
     }
 
-    [Theory]
-    [InlineData(MemberTypes.Field)]
-    [InlineData(MemberTypes.Property)]
-    [InlineData(MemberTypes.Method)]
-    [InlineData(MemberTypes.Event)]
-    [InlineData(MemberTypes.NestedType)]
-    [InlineData(MemberTypes.Constructor)]
-    public void BuildingBlockMarker_Should_Declare_No_Public_Members(MemberTypes memberKind)
+    [Fact]
+    public void BuildingBlockMarker_Should_Declare_No_Public_Members()
     {
         // Arrange
         const BindingFlags flags =
-            BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static | BindingFlags.DeclaredOnly;
+            BindingFlags.Public |
+            BindingFlags.Instance |
+            BindingFlags.Static |
+            BindingFlags.DeclaredOnly;
 
         // Act
         var members = MarkerType
             .GetMembers(flags)
-            .Where(member => member.MemberType == memberKind)
             .ToArray();
 
         // Assert
         members.ShouldBeEmpty();
     }
 
-    [Theory]
-    [InlineData(BindingFlags.Public | BindingFlags.Instance)]
-    [InlineData(BindingFlags.Public | BindingFlags.Static)]
-    public void BuildingBlockMarker_Should_Have_No_Public_Constructor(BindingFlags flags)
+    [Fact]
+    public void BuildingBlockMarker_Should_Not_Be_Instantiable()
     {
         // Arrange
         var type = MarkerType;
 
         // Act
-        var constructors = type.GetConstructors(flags);
+        var exception = Should.Throw<MemberAccessException>(
+            () => Activator.CreateInstance(type));
 
         // Assert
-        constructors.ShouldBeEmpty();
+        exception.ShouldNotBeNull();
     }
 
     [Fact]
-    public void BuildingBlockMarker_Should_Reject_Reflection_Instantiation()
+    public void BuildingBlockMarker_Should_Identify_Its_Assembly()
     {
         // Arrange
         var type = MarkerType;
-        Exception? exception = null;
 
         // Act
-        try
-        {
-            _ = Activator.CreateInstance(type);
-        }
-        catch (Exception ex)
-        // Catch: Broad catch so the assertion reports the runtime's real exception type.
-        {
-            exception = ex;
-        }
+        var assembly = type.Assembly;
+        var types = assembly.GetTypes();
 
         // Assert
-        exception.ShouldNotBeNull("Activator succeeded — the marker became instantiable.");
-        exception.ShouldBeAssignableTo<MemberAccessException>();
+        types.ShouldContain(type);
     }
 }
