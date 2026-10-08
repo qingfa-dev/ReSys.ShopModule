@@ -45,10 +45,10 @@ npm run dev
 
 ```
 Re.Shop/
-├── apps/
+├── app/
 │   ├── api/          # ASP.NET Core Web API
 │   └── web/          # React SPA
-├── packages/
+├── src/
 │   └── shared/       # shared types and contracts
 └── README.md
 ```
