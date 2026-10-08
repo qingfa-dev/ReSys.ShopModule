@@ -4,7 +4,8 @@
     <RootNamespace>BuildingBlock.Monad</RootNamespace>
     <AssemblyName>BuildingBlock.Monad</AssemblyName>
 
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <!-- TODO: open in the future to add documentation -->
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
 
     <PackageId>BuildingBlock.Monad</PackageId>
     <Description>
