@@ -1,7 +1,6 @@
 using System.Reflection;
-using BuildingBlock.Core;
 
-namespace BuildingBlock.Monad.UnitTest;
+namespace BuildingBlock.Core.UnitTest;
 
 [Trait("Category", "Contract")]
 public sealed class BuildingBlockCoreMarkerSpec

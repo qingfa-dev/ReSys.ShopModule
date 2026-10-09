@@ -17,14 +17,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="../../../src/BuildingBlocks/BuildingBlock.Monad/BuildingBlock.Monad.csproj" />
+    <ProjectReference Include="../../../src/BuildingBlocks/BuildingBlock.Core/BuildingBlock.Core.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <Using Include="Moq" />
     <Using Include="Shouldly" />
     <Using Include="Xunit" />
-    <Using Include="BuildingBlock.Monad" />
+    <Using Include="BuildingBlock.Core" />
   </ItemGroup>
 
 </Project>
