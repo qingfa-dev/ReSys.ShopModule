@@ -5,3 +5,7 @@ public interface IHasMetadata<TMetadata>
 {
     TMetadata Metadata { get; }
 }
+
+public interface IHasMetadata : IHasMetadata<MetadataDictionary>
+{
+}
