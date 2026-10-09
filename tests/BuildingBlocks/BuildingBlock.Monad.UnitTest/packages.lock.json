@@ -222,6 +222,12 @@
           "xunit.v3.runner.common": "[3.2.2]"
         }
       },
+      "buildingblock.core": {
+        "type": "Project",
+        "dependencies": {
+          "BuildingBlock.Monad": "[1.0.0, )"
+        }
+      },
       "buildingblock.monad": {
         "type": "Project"
       }
